@@ -8,5 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Music extends Model
 {
     protected $table = 'musics';
-    protected $fillable = ['name'];
+    protected $fillable = [
+        'name',
+        'id'
+    
+    
+    ];
 }
