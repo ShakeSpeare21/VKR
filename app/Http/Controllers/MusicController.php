@@ -3,16 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Models\Music;
+use App\Http\Controllers\CommentController;
+use App\Models\Comment;
 use Illuminate\Http\Request;
+use DB;
 
 
 class MusicController extends Controller
 {
 
+
     function fetch()
     {
         $data=Music::all()->toArray();
-        return view('musics',compact('data'));
+        $comments=Comment::all()->toArray();
+        return view('musics',compact('data', 'comments'));
     }
 
     function insert(Request $request)
@@ -33,4 +38,5 @@ class MusicController extends Controller
         $musics = DB::table('musics')->select('*')->get();
         return view('upload', ['music' => $musics]);
     }
+
 }

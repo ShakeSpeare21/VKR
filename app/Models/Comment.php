@@ -9,6 +9,7 @@ class Comment extends Model
 {
     protected $table = 'comments';
     protected $fillable = [
+        'name',
         'music_id',
         'user_id',
         'text'

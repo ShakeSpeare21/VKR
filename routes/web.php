@@ -6,6 +6,7 @@ use App\Models\Music;
 use App\Http\Controllers\CommentController;
 use App\Models\Comment;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FavoritesController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -22,9 +23,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/music', [MusicController::class, 'fetch'])->name('music');
 Route::post('/insert_music', [MusicController::class, 'insert'])->name('insert.file');
+Route::post('/music', [MusicController::class, 'insert'])->name('insert.file');
 
 // Route::get('/music', [CommentController::class, 'display'])->name('comment');
 Route::post('/insert_comment', [CommentController::class, 'insert'])->name('insert.comment');
+Route::post('/insert_favorite', [FavoriteController::class, 'favorites'])->name('favorite');
 
 // Route::get('/dashboard', [MusicController::class, 'create']);
 // Route::post('/upload_music', [MusicController::class, 'store'])->name('insert.file');
@@ -32,6 +35,8 @@ Route::post('/insert_comment', [CommentController::class, 'insert'])->name('inse
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/favorites', [FavoritesController::class, 'fetch'])->name('favorites');
 
 
 
